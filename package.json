@@ -17,10 +17,13 @@
     "build": "webpack"
   },
   "dependencies": {
+    "axios": "^0.17.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "bootstrap": "4.0.0-beta.2",
     "immutable": "^3.8.2",
     "jquery": "^3.2.1",
     "popper.js": "^1.12.9",
+    "prop-types": "^15.6.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-redux": "^5.0.6",
@@ -28,5 +31,6 @@
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
-  }
+  },
+  "proxy": "https://afternoon-inlet-60603.herokuapp.com"
 }
