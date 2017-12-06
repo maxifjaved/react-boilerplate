@@ -73,6 +73,16 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   devServer: {
+    proxy: {
+      '/api/*': {
+        target: 'https://afternoon-inlet-60603.herokuapp.com/',
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
     historyApiFallback: true
   }
 };

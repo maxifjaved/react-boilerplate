@@ -31,7 +31,7 @@ class Signup extends Component {
     submitForm = () => {
         this.setState({ name: 'google' });
         console.log(this.state.name);
-        console.log(this.props.signup);
+        console.log(this.props.signup());
     };
 
 
