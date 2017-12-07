@@ -32,7 +32,7 @@ TextAreaGroup.propTypes = {
 
 
 TextFieldGroup.defaultProps = {
-    rows: 5
+    rows: 3
 }
 
 export default TextAreaGroup;

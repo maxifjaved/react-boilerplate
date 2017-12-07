@@ -3,25 +3,52 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import { signup } from '../../actions/user'
-import { SignUpForm } from '../../components'
+import { SignUpForm, SignUpFormV2 } from '../../components'
 
 import './signup.css'
 
 class Signup extends Component {
     state = {
-        name: 'test'
+        fields: {
+            firstName: '',
+            lastName: '',
+            email: '',
+            username: '',
+            password: '',
+            confirmPassword: '',
+            gender: '',
+        },
+        errors: {},
+        isLoading: false
     };
 
-    submitForm = () => {
-        this.setState({ name: 'google' });
-        console.log(this.state.name);
-        console.log(this.props.signup());
+    onSubmit = (e) => {
+
+    };
+    onChange = (e) => {
+
+    };
+    checkUserExists = (e) => {
+
     };
 
 
 
     render = () => {
-        return <SignUpForm />
+        const { fields, errors } = this.state;
+
+        return (
+            <div>
+                <SignUpForm
+                    onSubmit={this.onSubmit}
+                    onChange={this.onChange}
+                    checkUserExists={this.checkUserExists}
+                    fields={fields}
+                    errors={errors}
+                />
+                <SignUpFormV2 />
+            </div>
+        )
     }
 
 

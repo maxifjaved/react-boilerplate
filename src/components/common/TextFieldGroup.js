@@ -5,7 +5,6 @@ import classnames from 'classnames'
 const TextFieldGroup = ({ field, value, label, placeholder, error, type, onChange, onBlur }) => {
     return (
         <div className={classnames('form-group', { 'has-error': error })}>
-            <label className="control-label">{label}</label>
             <input
                 onChange={onChange}
                 onBlur={onBlur}
