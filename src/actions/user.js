@@ -1,6 +1,6 @@
 import { api } from '../api'
 
-export const signup = data => dispatch =>
+export const userSignupRequest = data => dispatch =>
     api.user.signup(data).then(user => {
         localStorage.bookwormJWT = user.token;
         // dispatch(userLoggedIn(user));

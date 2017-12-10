@@ -9,7 +9,6 @@ const SelectFieldGroup = ({ field, value, label, data, placeholder, error, onCha
 
     return (
         <div className={classnames('form-group', { 'has-error': error })}>
-            <label className="control-label">{label}</label>
             <select
                 onChange={onChange}
                 value={value}

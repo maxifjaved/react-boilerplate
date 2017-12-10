@@ -1,10 +1,10 @@
 import React from 'react'
 import { SelectFieldGroup, TextFieldGroup } from '../common'
+import { timezones } from '../../data'
 
 const SignUpForm = (props) => {
-    const { onSubmit, onChange, checkUsernameExists, checkUserEmailExists, fields, errors } = props;
+    const { onSubmit, onChange, checkUsernameExists, checkUserEmailExists, fields, errors, isLoading, invalid } = props;
 
-    console.log(errors);
     return (
         <form onSubmit={onSubmit}>
             <h1>Join our community!</h1>
@@ -61,6 +61,20 @@ const SignUpForm = (props) => {
                 field="confirmPassword"
                 type="password"
             />
+            <SelectFieldGroup
+                error={errors.timezone}
+                label="Timezone"
+                onChange={onChange}
+                value={fields.timezone}
+                field="timezone"
+                data={timezones}
+            />
+
+            <div className="form-group">
+                <button disabled={isLoading || invalid} className="btn btn-primary btn-lg">
+                    Sign up
+                </button>
+            </div>
         </form>
 
     );
