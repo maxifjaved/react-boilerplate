@@ -4,7 +4,7 @@ import classnames from 'classnames'
 
 const TextAreaGroup = ({ field, value, label, rows, placeholder, error, onChange, onBlur }) => {
     return (
-        <div className={classnames('form-group', { 'has-error': error })}>
+        <div className={classnames('form-group', { 'has-danger': error })}>
             <label className="control-label">{label}</label>
             <textarea
                 onChange={onChange}

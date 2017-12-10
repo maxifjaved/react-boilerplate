@@ -17,7 +17,7 @@ function signupValidation(data) {
     if (isEmpty(data.email)) {
         errors.email = 'This field is required';
     }
-    if (!isEmail(data.email)) {
+    if (!data.email && !isEmail(data.email)) {
         errors.email = 'Email is invalid';
     }
     if (isEmpty(data.username)) {
@@ -32,9 +32,14 @@ function signupValidation(data) {
     if (!equals(data.password, data.confirmPassword)) {
         errors.confirmPassword = 'Passwords must match';
     }
-    if (isEmpty(data.gender)) {
-        errors.gender = 'This field is required';
+    if (isEmpty(data.timezone)) {
+        errors.timezone = 'This field is required';
     }
+
+    if (!data.terms) {
+        errors.terms = 'Accept Term and condition to proceed';
+    }
+
 
     return {
         errors,

@@ -17,8 +17,8 @@ class Signup extends Component {
             username: '',
             password: '',
             confirmPassword: '',
-            gender: '',
-            timezone: 'America/Los_Angeles'
+            timezone: 'America/Los_Angeles',
+            terms: false
         },
         errors: {},
         isLoading: false,
@@ -59,8 +59,9 @@ class Signup extends Component {
 
         this.setState({ fields: { ...this.state.fields, [name]: value } });
 
-        // this.setState({ fields: { ...this.state.fields, [e.target.name]: e.target.value } });
-        // this.setState({ fields: { [e.target.name]: e.target.value } });
+    };
+    onChangeCheckbox = (name, value) => {
+        this.setState({ fields: { ...this.state.fields, [name]: value } });
     };
     checkUserExists = (e) => {
 
@@ -76,6 +77,7 @@ class Signup extends Component {
                 <SignUpForm
                     onSubmit={this.onSubmit}
                     onChange={this.onChange}
+                    onChangeCheckbox={this.onChangeCheckbox}
                     checkUserExists={this.checkUserExists}
                     fields={fields}
                     isLoading={isLoading}

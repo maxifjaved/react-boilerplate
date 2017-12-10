@@ -1,9 +1,9 @@
 import React from 'react'
-import { SelectFieldGroup, TextFieldGroup } from '../common'
+import { TextFieldGroup, SelectFieldGroup, CheckboxGroup } from '../common'
 import { timezones } from '../../data'
 
 const SignUpForm = (props) => {
-    const { onSubmit, onChange, checkUsernameExists, checkUserEmailExists, fields, errors, isLoading, invalid } = props;
+    const { onSubmit, onChange, onChangeCheckbox, checkUsernameExists, checkUserEmailExists, fields, errors, isLoading, invalid } = props;
 
     return (
         <form onSubmit={onSubmit}>
@@ -68,6 +68,14 @@ const SignUpForm = (props) => {
                 value={fields.timezone}
                 field="timezone"
                 data={timezones}
+            />
+
+            <CheckboxGroup
+                error={errors.terms}
+                label={'Accept Term And Conditions'}
+                onChange={onChangeCheckbox}
+                value={fields.terms}
+                field="terms"
             />
 
             <div className="form-group">
