@@ -1,38 +1,61 @@
-//inprogress ....
+// // inprogress ....
 
-// import React from 'react'
-// import PropTypes from 'prop-types'
-// import classnames from 'classnames'
-// import map from 'lodash/map'
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
+import map from 'lodash/map'
+import { toggle } from '../../utils'
 
-// const RadioFieldGroup = ({ field, value, label, data, placeholder, error, onChange }) => {
-//     const options = map(data, (val, key) =>
-//         <option key={val} value={val}>{key}</option>)
+class RadioFieldGroup extends React.Component {
 
-//     return (
-//         <div className={classnames('form-group', { 'has-error': error })}>
-//             <label className="control-label">{label}</label>
-//             <select
-//                 onChange={onChange}
-//                 value={value}
-//                 name={field}
-//                 className="form-control"
-//             >
-//                 <option value="" disabled>Choose Your {placeholder || label}</option>
-//                 {options}
-//             </select >
-//             {error && <span className="help-block">{error}</span>}
-//         </div>);
-// }
+    static propTypes = {
+        checked: PropTypes.array.isRequired,
+        field: PropTypes.string.isRequired,
+        error: PropTypes.string,
+        onChange: PropTypes.func.isRequired
+    };
+    static defaultProps = {
+        checked: []
+    };
+    constructor(props) {
+        super(props);
+        this.state = { checked: props.checked };
+    };
 
-// RadioFieldGroup.propTypes = {
-//     field: PropTypes.string.isRequired,
-//     value: PropTypes.string.isRequired,
-//     label: PropTypes.string.isRequired,
-//     data: PropTypes.object.isRequired,
-//     placeholder: PropTypes.string,
-//     error: PropTypes.string,
-//     onChange: PropTypes.func.isRequired
-// }
+    _handleChange = (e) => {
+        const { field } = this.props
+        const { value } = e.target;
 
-// export default RadioFieldGroup;
+
+        this.props.onChange(field, [value])
+        this.setState({ checked: [value] })
+    };
+
+    render() {
+        const { field, label, data, error } = this.props;
+        const { checked } = this.state;
+
+
+        let options = map(data, (val, key) => <label key={key} className="form-check-label">
+            <input
+                onChange={this._handleChange}
+                checked={checked.indexOf(key) > -1}
+                type='radio'
+                value={key}
+                name={field}
+                className="form-check-input"
+            />
+            <span className="custom-control-description">{val}</span>
+        </label>)
+
+        return (
+            <div className={classnames('form-check', { 'has-danger': error })}>
+                {options}
+                <br />
+                {error && <span className="help-block">{error}</span>}
+            </div>
+        );
+    }
+}
+
+export default RadioFieldGroup

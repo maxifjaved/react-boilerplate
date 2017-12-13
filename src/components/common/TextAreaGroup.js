@@ -31,7 +31,7 @@ TextAreaGroup.propTypes = {
 }
 
 
-TextFieldGroup.defaultProps = {
+TextAreaGroup.defaultProps = {
     rows: 3
 }
 
