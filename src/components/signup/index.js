@@ -3,11 +3,11 @@ import { TextFieldGroup, SelectFieldGroup, CheckboxGroup, RadioFieldGroup } from
 import { timezones, terms, gender } from '../../data'
 
 const SignUpForm = (props) => {
-    const { onSubmit, onChange, onChangeCheckboxOrRadio, checkUsernameExists, checkUserEmailExists, fields, errors, isLoading, invalid } = props;
+    const { onSubmit, onChange, onChangeCheckboxOrRadio, checkUsernameExists, checkUserEmailExists, fields, errors, isLoading } = props;
 
     return (
         <form onSubmit={onSubmit}>
-            <h1>Join our community!</h1>
+            <h1>Join Us !</h1>
 
             <TextFieldGroup
                 error={errors.firstName}
@@ -91,7 +91,7 @@ const SignUpForm = (props) => {
 
 
             <div className="form-group">
-                <button disabled={isLoading || invalid} className="btn btn-primary btn-lg">
+                <button disabled={isLoading} className="btn btn-primary btn-lg">
                     Sign up
                 </button>
             </div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { userSignupRequest } from '../../actions/user'
+import { userSignupRequest, sendApolloRequest } from '../../actions/user'
 import { SignUpForm } from '../../components'
 import { signupValidation } from '../../validations'
 
@@ -67,6 +67,9 @@ class Signup extends Component {
     checkUserExists = (e) => {
 
     };
+    sendApolloRequest = (e) => {
+        this.props.sendApolloRequest();
+    };
 
 
 
@@ -83,8 +86,9 @@ class Signup extends Component {
                     fields={fields}
                     isLoading={isLoading}
                     errors={errors}
-                    invalid={invalid}
                 />
+
+                <button onClick={this.sendApolloRequest}>Send Apollo Request</button>
             </div>
         )
     }
@@ -97,4 +101,4 @@ Signup.propTypes = {
 };
 const mapStateToProps = (state) => ({});
 
-export default connect(mapStateToProps, { userSignupRequest })(Signup);
+export default connect(mapStateToProps, { userSignupRequest, sendApolloRequest })(Signup);

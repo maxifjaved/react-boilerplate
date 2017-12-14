@@ -74,13 +74,10 @@ module.exports = {
   },
   devServer: {
     proxy: {
-      '/api/*': {
-        target: 'https://afternoon-inlet-60603.herokuapp.com/',
+      '/api': {
+        target: 'http://159.203.96.223/graphql',
         secure: false,
         changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
       }
     },
     historyApiFallback: true

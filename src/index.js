@@ -1,5 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
+
+import { ApolloProvider } from 'react-apollo';
+// import { ApolloClient } from 'apollo-client';
+// import { HttpLink } from 'apollo-link-http';
+// import { InMemoryCache } from 'apollo-cache-inmemory';
+
+
 import { Provider } from 'react-redux';
 
 import 'bootstrap';
@@ -9,8 +16,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes } from './routes'
 import { store } from './store'
 
+
+
+// const client = new ApolloClient({
+//     link: new HttpLink({ uri: '/api/graphql' }),
+//     cache: new InMemoryCache()
+// });
+
+import { client } from './apollo'
+
+
 render(
-    <Provider store={store}>
+    <ApolloProvider store={store} client={client}>
         <Routes />
-    </Provider>, document.getElementById('app')
+    </ApolloProvider>, document.getElementById('app')
 );

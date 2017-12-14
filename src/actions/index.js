@@ -1,3 +1,3 @@
-import { userSignupRequest } from './user'
+import { userSignupRequest, sendApolloRequest } from './user'
 
-export { userSignupRequest };
+export { userSignupRequest, sendApolloRequest };

@@ -1,20 +1,18 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { routerMiddleware } from 'react-router-redux';
+import Immutable from 'immutable';
 
-
-import { rootReducer } from '../reducers';
+import { rootReducer } from '../reducers'
+import { client } from '../apollo'
 import { history } from './';
 
 function configureStoreProd(initialState) {
   const reactRouterMiddleware = routerMiddleware(history);
   const middlewares = [
-    // Add other middleware on this line...
-
-    // thunk middleware can also accept an extra argument to be passed to each thunk action
-    // https://github.com/gaearon/redux-thunk#injecting-a-custom-argument
     thunk,
     reactRouterMiddleware,
+    client.middleware()
   ];
 
   return createStore(rootReducer, initialState, compose(
@@ -27,11 +25,6 @@ function configureStoreProd(initialState) {
 function configureStoreDev(initialState) {
   const reactRouterMiddleware = routerMiddleware(history);
   const middlewares = [
-    // Add other middleware on this line...
-
-
-    // thunk middleware can also accept an extra argument to be passed to each thunk action
-    // https://github.com/gaearon/redux-thunk#injecting-a-custom-argument
     thunk,
     reactRouterMiddleware,
   ];
