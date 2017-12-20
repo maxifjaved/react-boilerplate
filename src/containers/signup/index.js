@@ -19,7 +19,9 @@ class Signup extends Component {
             confirmPassword: '',
             timezone: 'America/Los_Angeles',
             terms: [],
-            gender: []
+            gender: [],
+            account: [],
+            language: [],
         },
         errors: {},
         isLoading: false,

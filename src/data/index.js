@@ -1,5 +1,4 @@
 import timezones from './timezones'
-import terms from './terms'
-import gender from './gender'
+import { terms, genders, accounts, languages } from './data'
 
-export { timezones, terms, gender }
+export { timezones, terms, genders, accounts, languages }

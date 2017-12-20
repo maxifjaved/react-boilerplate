@@ -1,6 +1,6 @@
 import React from 'react'
 import { TextFieldGroup, SelectFieldGroup, CheckboxGroup, RadioFieldGroup } from '../common'
-import { timezones, terms, gender } from '../../data'
+import { timezones, terms, genders, accounts, languages } from '../../data'
 
 const SignUpForm = (props) => {
     const { onSubmit, onChange, onChangeCheckboxOrRadio, checkUsernameExists, checkUserEmailExists, fields, errors, isLoading } = props;
@@ -73,10 +73,28 @@ const SignUpForm = (props) => {
             <RadioFieldGroup
                 error={errors.gender}
                 label={'Select Your Gender'}
-                data={gender}
+                data={genders}
                 onChange={onChangeCheckboxOrRadio}
                 value={fields.gender}
                 field="gender"
+            />
+
+            <RadioFieldGroup
+                error={errors.account}
+                label={'Select Your Account Type'}
+                data={accounts}
+                onChange={onChangeCheckboxOrRadio}
+                value={fields.account}
+                field="account"
+            />
+
+            <RadioFieldGroup
+                error={errors.language}
+                label={'Select Your Language'}
+                data={languages}
+                onChange={onChangeCheckboxOrRadio}
+                value={fields.language}
+                field="language"
             />
 
 

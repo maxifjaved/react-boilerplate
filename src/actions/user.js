@@ -1,4 +1,3 @@
-import { user } from '../api'
 import gql from 'graphql-tag';
 
 import { client } from '../apollo'
