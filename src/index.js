@@ -4,8 +4,6 @@ import { render } from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
 
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
-
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,14 +13,15 @@ import { store, history } from './store'
 
 
 import { client } from './apollo'
+import { Intl } from './containers'
 
 
 render(
     <Provider store={store}>
         <ApolloProvider store={store} client={client}>
-            <ConnectedRouter history={history}>
+            <Intl>
                 <Routes />
-            </ConnectedRouter>
+            </Intl>
         </ApolloProvider>
     </Provider>, document.getElementById('app')
 );

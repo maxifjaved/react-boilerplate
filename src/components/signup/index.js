@@ -1,4 +1,5 @@
 import React from 'react'
+import { FormattedMessage } from 'react-intl'
 import { TextFieldGroup, SelectFieldGroup, CheckboxGroup, RadioFieldGroup } from '../common'
 import { timezones, terms, genders, accounts, languages } from '../../data'
 
@@ -8,7 +9,7 @@ const SignUpForm = (props) => {
     return (
         <form onSubmit={onSubmit}>
             <h1>Join Us !</h1>
-
+            <FormattedMessage id="siteTitle" />
             <TextFieldGroup
                 error={errors.firstName}
                 label="First Name"
