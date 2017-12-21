@@ -9,7 +9,6 @@ const SignUpForm = (props) => {
     return (
         <form onSubmit={onSubmit}>
             <h1>Join Us !</h1>
-            <FormattedMessage id="siteTitle" />
             <TextFieldGroup
                 error={errors.firstName}
                 label="First Name"
